@@ -113,7 +113,7 @@ GameObject:
   - 114: {fileID: 680393583}
   m_Layer: 0
   m_Name: GUI
-  m_TagString: Untagged
+  m_TagString: GUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02eae128856e198499b93a03bd14fbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSpace: 20
+  buttonHeight: 40
+  buttonWidth: 90
+  tagName: Enemy
+  test: 0
 --- !u!114 &680393583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ecf15517a0d1b147b3e9ce0273a133a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSpace: 20
+  buttonHeight: 80
+  buttonWidth: 180
 --- !u!1 &769221509
 GameObject:
   m_ObjectHideFlags: 0

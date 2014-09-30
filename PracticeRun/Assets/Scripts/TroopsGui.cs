@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEditor;
+using System.Collections.Generic;
 
 public class TroopsGui : MonoBehaviour {
 	public int buttonSpace = 20;
@@ -9,8 +11,12 @@ public class TroopsGui : MonoBehaviour {
 	public string tagName = "Enemy";
 	public int test = 0;
 
-	private TroopPlace troopPlace;
+	public GameObject archer;
+	public GameObject warrior;
+	public GameObject catapult;
 
+	private TroopPlace troopPlace;
+	private List<GameObject> taggedObjects;
 	private bool menuShowing = false;
 	private int buttonYPos;
 	private int buttonXPos;
@@ -21,7 +27,7 @@ public class TroopsGui : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -42,17 +48,27 @@ public class TroopsGui : MonoBehaviour {
 
 
 	private void createButtons () {
-		var taggedObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g=>g.tag==tagName).ToList();
-		test = taggedObjects.Count () + 1;
+		int count = 0;
 		GUI.Label (new Rect (buttonXPos + 3, buttonYPos - 25, 200, 30), "PURCHASE TROOPS");
-		foreach (GameObject o in taggedObjects) {
-			if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Add " + o.name)) {
-				if (troopPlace.PlaceIsInProcess()) {
-					troopPlace.DefineObjectName(o.name);
-					HideMenu();
-				}
+
+		if (GUI.Button (new Rect (buttonXPos + count, buttonYPos, buttonWidth, buttonHeight), "Add Archer")) {
+			if (!troopPlace.PlaceIsInProcess()) {
+				troopPlace.DefineObjectName(archer);
 			}
 		}
+		count += buttonWidth + buttonSpace;
+		if (GUI.Button (new Rect (buttonXPos + count, buttonYPos, buttonWidth, buttonHeight), "Add Warrior")) {
+			if (!troopPlace.PlaceIsInProcess()) {
+				troopPlace.DefineObjectName(warrior);
+			}
+		}
+		count += buttonWidth + buttonSpace;
+		if (GUI.Button (new Rect (buttonXPos + count, buttonYPos, buttonWidth, buttonHeight), "Add Catapult")) {
+			if (!troopPlace.PlaceIsInProcess()) {
+				troopPlace.DefineObjectName(catapult);
+			}
+		}
+		count += buttonWidth + buttonSpace;
 	}
 
 	public void HideMenu() {

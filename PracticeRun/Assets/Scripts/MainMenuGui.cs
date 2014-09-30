@@ -11,6 +11,10 @@ public class MainMenuGui : MonoBehaviour {
 	private int buttonYPos;
 	private int buttonXPos;
 
+	void Awake () {
+		managerScript = GameObject.FindWithTag ("Manager").GetComponent<ManagerScript> ();
+	}
+
 	// Use this for initialization
 	void Start () {
 	
@@ -23,22 +27,20 @@ public class MainMenuGui : MonoBehaviour {
 
 	void OnGUI(){
 		if (menuShowing) {
-			DefineScreenWidth ();
+			ShowMainMenu ();
 		} 
 	}
 
-	void CreateButtons() {
+	void ShowMainMenu() {
 		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Continue")) {
-			managerScript.currency += 50;
+			HideMenu();
+			managerScript.UnpauseGame();
+		}
+		if (GUI.Button (new Rect (buttonXPos, buttonYPos + buttonHeight + buttonSpace, buttonWidth, buttonHeight), "Settings")) {
 			HideMenu();
 		}
-		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Add Archers")) {
-			managerScript.currency += 50;
-			HideMenu();
-		}
-		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Exit")) {
-			managerScript.currency += 50;
-			HideMenu();
+		if (GUI.Button (new Rect (buttonXPos, buttonYPos + 2 * (buttonHeight + buttonSpace), buttonWidth, buttonHeight), "Exit")) {
+			Application.Quit();
 		}
 	}
 
@@ -51,7 +53,7 @@ public class MainMenuGui : MonoBehaviour {
 	}
 
 	private void DefineScreenWidth () {
-		buttonYPos = Screen.height - (buttonHeight + buttonSpace);
-		buttonXPos = buttonSpace;
+		buttonYPos = (Screen.height - (buttonHeight * 3 + buttonSpace * 2))/2;
+		buttonXPos = (Screen.width - buttonWidth)/2;
 	}
 }

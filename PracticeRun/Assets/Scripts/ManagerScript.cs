@@ -24,8 +24,20 @@ public class ManagerScript: MonoBehaviour {
 
 	private void CheckMainMenu () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			troopsGui.ShowMenu();
-			paused = true;
+			mainMenuGui.ShowMenu ();
+			PauseGame ();
 		}
+	}
+
+	public void IsPaused () {
+		return paused;
+	}
+
+	public void PauseGame () {
+		paused = true;
+	}
+
+	public void UnpauseGame () {
+		paused = false;
 	}
 }

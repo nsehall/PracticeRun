@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\MainMenuGui.cs" />
      <Compile Include="Assets\Scripts\ManagerScript.cs" />
+     <Compile Include="Assets\Scripts\TroopPlace.cs" />
      <Compile Include="Assets\Scripts\TroopsGui.cs" />
      <Compile Include="Assets\Scripts\WallScript.cs" />
   </ItemGroup>

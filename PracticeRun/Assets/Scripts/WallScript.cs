@@ -22,7 +22,8 @@ public class WallScript : MonoBehaviour {
 		if (damage < health) {
 			health = health - damage;
 		} else {
-			Destroy(this.gameObject);
+			transform.position = Vector2.up * 1000;
+			Destroy(this.gameObject, 0.5f);
 		}
 	}
 	

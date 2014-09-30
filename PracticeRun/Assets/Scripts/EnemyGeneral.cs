@@ -41,10 +41,12 @@ public class EnemyGeneral : MonoBehaviour {
 			break;
 
 		case EnemyState.Dead:
+			transform.position = Vector2.up * 1000;
+
 			if(spawnedFrom != null){
 				spawnedFrom.GetComponent<EnemySpawner>().numSpawned--;
 			}
-			Destroy(this.gameObject);
+			Destroy(this.gameObject, 0.5f);
 			break;
 		}
 	}
@@ -52,6 +54,11 @@ public class EnemyGeneral : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Walls"){
 			state = EnemyState.Attacking;
+		}
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if(other.tag == "Walls"){
+			state = EnemyState.Moving;
 		}
 	}
 

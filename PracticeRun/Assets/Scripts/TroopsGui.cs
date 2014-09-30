@@ -8,7 +8,7 @@ public class TroopsGui : MonoBehaviour {
 	const int buttonWidth = 90;
 
 	private ManagerScript managerScript;
-	private bool menuShowing = true;
+	private bool menuShowing = false;
 	private int buttonYPos;
 	private int buttonXPos;
 
@@ -33,7 +33,7 @@ public class TroopsGui : MonoBehaviour {
 		} 
 	}
 
-	bool MenuShowing () {
+	public bool MenuShowing () {
 		return menuShowing;
 	}
 
@@ -50,14 +50,15 @@ public class TroopsGui : MonoBehaviour {
 		}
 		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Add Archers")) {
 			managerScript.currency += 50;
+			HideMenu();
 		}
 	}
 
-	void HideMenu() {
+	public void HideMenu() {
 		menuShowing = false;
 	}
 
-	void ShowMenu() {
+	public void ShowMenu() {
 		menuShowing = true;
 	}
 

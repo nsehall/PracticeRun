@@ -3,7 +3,14 @@ using System.Collections;
 
 public class ManagerScript: MonoBehaviour {
 	public int currency = 0;
+	private TroopsGui troopsGui;
+	private MainMenuGui mainMenuGui;
+	private bool paused = false;
 
+	void Awake () {
+		troopsGui = GameObject.FindWithTag ("GUI").GetComponent<TroopsGui> ();
+		mainMenuGui = GameObject.FindWithTag ("GUI").GetComponent<MainMenuGui> ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +18,26 @@ public class ManagerScript: MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-
+	void Update () {
+		CheckMainMenu ();
 	}
 
+	private void CheckMainMenu () {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			mainMenuGui.ShowMenu ();
+			PauseGame ();
+		}
+	}
+
+	public bool IsPaused () {
+		return paused;
+	}
+
+	public void PauseGame () {
+		paused = true;
+	}
+
+	public void UnpauseGame () {
+		paused = false;
+	}
 }

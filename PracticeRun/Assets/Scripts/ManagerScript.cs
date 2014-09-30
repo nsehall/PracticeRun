@@ -58,7 +58,7 @@ public class ManagerScript: MonoBehaviour {
 	private void MouseDownEvent() {
 		if (!IsPaused ()) {
 			if (troopPlace.PlaceIsInProcess()) {
-				troopPlace.AttemptTroopPlace();
+				troopPlace.CancelTroopPlace();
 			} else {
 
 			}

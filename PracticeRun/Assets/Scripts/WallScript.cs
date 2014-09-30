@@ -42,13 +42,12 @@ public class WallScript : MonoBehaviour {
     }
 
 	//onclick assign troop's parent to wall
-	public bool AssignTroop(GameObject troopPrefab) {
+	public bool AssignTroop(GameObject troop) {
 		if (IsOccupied() == false) {
-			Transform troop = (Transform)Instantiate (troopPrefab);
 			troop.transform.position = this.transform.position;
 			troop.transform.parent = this.transform;
 			return true;
-		    } else {
+	    } else {
 			return false;
 		}
 	}

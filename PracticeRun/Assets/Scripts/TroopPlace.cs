@@ -32,6 +32,7 @@ public class TroopPlace : MonoBehaviour {
 	}
 
 	public void CancelTroopPlace() {
+		Destroy (troop.gameObject);
 		objSet = false;
 	}
 
@@ -40,12 +41,11 @@ public class TroopPlace : MonoBehaviour {
 		for (int i = 0; i < hits.Length; i++) {
 			if (hits[i].tag == "Walls") {
 				if (hits[i].GetComponent<WallScript> ().AssignTroop(troop)) {
+					objSet = false;
 					return true;
 				}
 			}
 		}
-		
-		objSet = false;
 
 		return true;
 	}

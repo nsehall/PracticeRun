@@ -39,7 +39,12 @@ public class ManagerScript: MonoBehaviour {
 			MouseDownEvent();
 		}
 		if (Input.GetMouseButtonDown (1)) {
-			troopsGui.ShowMenu();
+			if (troopsGui.MenuShowing()) {
+				if (troopPlace.PlaceIsInProcess()) troopPlace.CancelTroopPlace();
+				troopsGui.HideMenu();
+			} else {
+				troopsGui.ShowMenu();
+			}
 		}
 	}
 
@@ -58,7 +63,7 @@ public class ManagerScript: MonoBehaviour {
 	private void MouseDownEvent() {
 		if (!IsPaused ()) {
 			if (troopPlace.PlaceIsInProcess()) {
-				troopPlace.CancelTroopPlace();
+				troopPlace.AttemptTroopPlace();
 			} else {
 
 			}

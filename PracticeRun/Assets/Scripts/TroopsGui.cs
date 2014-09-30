@@ -3,9 +3,11 @@ using System.Collections;
 using System.Linq;
 
 public class TroopsGui : MonoBehaviour {
-	const int buttonSpace = 20;
-	const int buttonHeight = 40;
-	const int buttonWidth = 90;
+	public int buttonSpace = 20;
+	public int buttonHeight = 40;
+	public int buttonWidth = 90;
+	public string tagName = "Enemy";
+	public int test = 0;
 
 	private TroopPlace troopPlace;
 
@@ -38,20 +40,17 @@ public class TroopsGui : MonoBehaviour {
 		return menuShowing;
 	}
 
-	private void TroopRequest () {
-
-	}
 
 	private void createButtons () {
-		var taggedObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g=>g.tag=="troops").ToList();
-
+		var taggedObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g=>g.tag==tagName).ToList();
+		test = taggedObjects.Count () + 1;
 		GUI.Label (new Rect (buttonXPos + 3, buttonYPos - 25, 200, 30), "PURCHASE TROOPS");
 		foreach (GameObject o in taggedObjects) {
-
-		}
-		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Add Archers")) {
-			if (troopPlace.PlaceIsInProcess()) {
-				HideMenu();
+			if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Add " + o.name)) {
+				if (troopPlace.PlaceIsInProcess()) {
+					troopPlace.DefineObjectName(o.name);
+					HideMenu();
+				}
 			}
 		}
 	}

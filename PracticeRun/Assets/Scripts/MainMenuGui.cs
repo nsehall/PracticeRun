@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class MainMenuGui : MonoBehaviour {
-	const int buttonSpace = 20;
-	const int buttonHeight = 80;
-	const int buttonWidth = 180;
+	public int buttonSpace = 20;
+	public int buttonHeight = 80;
+	public int buttonWidth = 180;
 
 	private ManagerScript managerScript;
 	private bool menuShowing = false;
@@ -49,6 +49,10 @@ public class MainMenuGui : MonoBehaviour {
 	
 	public void ShowMenu() {
 		menuShowing = true;
+	}
+
+	public bool IsVisible() {
+		return menuShowing;
 	}
 
 	private void DefineScreenWidth () {

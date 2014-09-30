@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ManagerScript: MonoBehaviour {
 	public int currency = 0;
+
 	private TroopsGui troopsGui;
 	private MainMenuGui mainMenuGui;
 	private TroopPlace troopPlace;
@@ -26,11 +27,19 @@ public class ManagerScript: MonoBehaviour {
 
 	private void CheckMainMenu () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			mainMenuGui.ShowMenu ();
-			PauseGame ();
+			if (mainMenuGui.IsVisible()) {
+				mainMenuGui.HideMenu();
+				UnpauseGame ();
+			} else {
+				mainMenuGui.ShowMenu ();
+				PauseGame ();
+			}
 		}
 		if (Input.GetMouseButtonDown (0)) {
 			MouseDownEvent();
+		}
+		if (Input.GetMouseButtonDown (1)) {
+			troopsGui.ShowMenu();
 		}
 	}
 

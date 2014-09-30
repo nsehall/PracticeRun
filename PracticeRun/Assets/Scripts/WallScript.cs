@@ -5,6 +5,7 @@ public class WallScript : MonoBehaviour {
 	
 	public int health = 100;
 	public bool occupied = false;
+	private int children = 0;
 	
 	
 	// Use this for initialization
@@ -25,10 +26,24 @@ public class WallScript : MonoBehaviour {
 		}
 	}
 	
-	//public bool IsOccupied() {
-		//Transform[] children = 
-			//if(this.gameObject.get
-			   //}
-    //}
+	public bool IsOccupied() {
+		children = transform.childCount;
+			if(children > 0) {
+			occupied = true;
+			   } else {
+			occupied = false;
+		}
+		return occupied;
+    }
 
+	//onclick assign troop's parent to wall
+	public bool AssignTroop(Transform troopPrefab) {
+		if (IsOccupied() == false) {
+			Transform troop = Instantiate (troopPrefab);
+			troop.transform.position = this.transform.position;
+			troop.transform.parent = this.transform;
+			return true;
+		    } else {
+			return false;
+		}
 }

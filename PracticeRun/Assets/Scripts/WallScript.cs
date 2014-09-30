@@ -19,7 +19,7 @@ public class WallScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		healthPercent = health / maxHealth;
-		GetComponent<Animator>().SetFloat("healthPercent", healthPercent);
+		GetComponent<Animator>().SetFloat("HealthPercent", healthPercent);
 	}
 	
 	public void ReceiveDamage(int damage){

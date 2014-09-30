@@ -11,9 +11,9 @@ public class TroopsGui : MonoBehaviour {
 	public string tagName = "Enemy";
 	public int test = 0;
 
-	public GameObject archer;
-	public GameObject warrior;
-	public GameObject catapult;
+	public Transform archer;
+	public Transform warrior;
+	public Transform catapult;
 
 	private TroopPlace troopPlace;
 	private List<GameObject> taggedObjects;

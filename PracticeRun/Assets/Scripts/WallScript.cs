@@ -23,8 +23,8 @@ public class WallScript : MonoBehaviour {
 	}
 	
 	public void ReceiveDamage(int damage){
-		if ((float)damage < health) {
-			health = health - (float)damage;
+		if (damage < health) {
+			health = health - damage;
 		} else {
 			transform.position = Vector2.up * 1000;
 			Destroy(this.gameObject, 0.5f);

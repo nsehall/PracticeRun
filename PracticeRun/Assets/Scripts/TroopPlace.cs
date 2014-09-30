@@ -16,11 +16,11 @@ public class TroopPlace : MonoBehaviour {
 		if (objSet) {
 			troop.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, 
 			                                       Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 
-			                                       troop.transform.position.z);
+                                    troop.transform.position.z);
 		}
 	}
 
-	public void DefineObjectName (GameObject obj) {
+	public void DefineObjectName (Transform obj) {
 		if (!PlaceIsInProcess()) {
 			objSet = true;
 			troop = (GameObject) Instantiate (obj, Vector3.zero, Quaternion.AngleAxis (0.0f, Vector3.zero));
@@ -46,7 +46,7 @@ public class TroopPlace : MonoBehaviour {
 				}
 			}
 		}
-
+		objSet = false;
 		return true;
 	}
 }

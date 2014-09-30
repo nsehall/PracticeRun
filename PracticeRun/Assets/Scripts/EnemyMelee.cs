@@ -16,7 +16,7 @@ public class EnemyMelee : EnemyGeneral {
 	void OnTriggerStay2D(Collider2D other){
 		if(other.tag == "Walls" && state == EnemyState.Attacking){
 			if(attackCooldown <= 0){
-				//other.GetComponent<WallScript>().ReceiveDamage(damage);
+				other.GetComponent<WallScript>().ReceiveDamage(damage);
 				attackCooldown = attackRate;
 			}
 		}

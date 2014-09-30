@@ -18,7 +18,7 @@ public class WallScript : MonoBehaviour {
 	}
 	
 	public void ReceiveDamage(int damage){
-		if (damage > health) {
+		if (damage < health) {
 			health = health - damage;
 		} else {
 			Destroy(this.gameObject);

@@ -4,10 +4,11 @@ using System.Collections;
 public class EnemyGeneral : MonoBehaviour {
 
 	public int health = 20;
-	public int damage = 5;
+	public int damage = 1;
 	public float attackRate = 0.5f;
 	public float speed = 2.0f;
 	public Vector2 direction = new Vector2(0.5f, -0.5f);
+	public GameObject spawnedFrom;
 
 	public enum EnemyState{
 		Moving,
@@ -40,6 +41,9 @@ public class EnemyGeneral : MonoBehaviour {
 			break;
 
 		case EnemyState.Dead:
+			if(spawnedFrom != null){
+				spawnedFrom.GetComponent<EnemySpawner>().numSpawned--;
+			}
 			Destroy(this.gameObject);
 			break;
 		}

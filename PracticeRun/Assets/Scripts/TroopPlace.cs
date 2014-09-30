@@ -13,14 +13,17 @@ public class TroopPlace : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (objSet) {
+			troop.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, 
+			                                       Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 
+			                                       troop.transform.position.z);
+		}
 	}
 
-	public void DefineObjectName (string name) {
+	public void DefineObjectName (GameObject obj) {
 		if (!PlaceIsInProcess()) {
 			objSet = true;
-			GameObject troop = (GameObject)Resources.Load("../Prefabs/" + name);
-			Instantiate (troop, Vector3.zero, Quaternion.AngleAxis (0.0f, Vector3.zero));
+			troop = (GameObject) Instantiate (obj, Vector3.zero, Quaternion.AngleAxis (0.0f, Vector3.zero));
 		}
 	}
 
@@ -28,13 +31,22 @@ public class TroopPlace : MonoBehaviour {
 		return objSet;
 	}
 
+	public void CancelTroopPlace() {
+		objSet = false;
+	}
+
 	public bool AttemptTroopPlace() {
 		Collider2D[] hits = Physics2D.OverlapPointAll (Camera.main.ScreenToWorldPoint(Input.mousePosition));
 		for (int i = 0; i < hits.Length; i++) {
 			if (hits[i].tag == "Walls") {
-				hits[i].GetComponent<WallScript> ().AssignTroop(troop);
+				if (hits[i].GetComponent<WallScript> ().AssignTroop(troop)) {
+					return true;
+				}
 			}
 		}
-		return false;
+		
+		objSet = false;
+
+		return true;
 	}
 }

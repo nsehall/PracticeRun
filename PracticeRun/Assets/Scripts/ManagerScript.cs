@@ -29,7 +29,7 @@ public class ManagerScript: MonoBehaviour {
 		}
 	}
 
-	public void IsPaused () {
+	public bool IsPaused () {
 		return paused;
 	}
 

@@ -5,11 +5,13 @@ public class ManagerScript: MonoBehaviour {
 	public int currency = 0;
 	private TroopsGui troopsGui;
 	private MainMenuGui mainMenuGui;
+	private TroopPlace troopPlace;
 	private bool paused = false;
 
 	void Awake () {
 		troopsGui = GameObject.FindWithTag ("GUI").GetComponent<TroopsGui> ();
 		mainMenuGui = GameObject.FindWithTag ("GUI").GetComponent<MainMenuGui> ();
+		troopPlace = GameObject.FindWithTag ("Manager").GetComponent<TroopPlace> ();
 	}
 
 	// Use this for initialization
@@ -27,6 +29,9 @@ public class ManagerScript: MonoBehaviour {
 			mainMenuGui.ShowMenu ();
 			PauseGame ();
 		}
+		if (Input.GetMouseButtonDown (0)) {
+			MouseDownEvent();
+		}
 	}
 
 	public bool IsPaused () {
@@ -39,5 +44,15 @@ public class ManagerScript: MonoBehaviour {
 
 	public void UnpauseGame () {
 		paused = false;
+	}
+
+	private void MouseDownEvent() {
+		if (!IsPaused ()) {
+			if (troopPlace.PlaceIsInProcess()) {
+				troopPlace.AttemptTroopPlace();
+			} else {
+
+			}
+		}
 	}
 }

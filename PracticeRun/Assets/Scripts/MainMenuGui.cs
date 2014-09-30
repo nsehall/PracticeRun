@@ -7,7 +7,7 @@ public class MainMenuGui : MonoBehaviour {
 	const int buttonWidth = 180;
 
 	private ManagerScript managerScript;
-	private bool menuShowing = true;
+	private bool menuShowing = false;
 	private int buttonYPos;
 	private int buttonXPos;
 
@@ -26,20 +26,19 @@ public class MainMenuGui : MonoBehaviour {
 	}
 
 	void OnGUI(){
+		DefineScreenWidth ();
 		if (menuShowing) {
 			ShowMainMenu ();
 		} 
 	}
 
 	void ShowMainMenu() {
+		GUI.Label (new Rect (buttonXPos + 65, buttonYPos - 25, buttonWidth, 30), "PAUSED");
 		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Continue")) {
 			HideMenu();
 			managerScript.UnpauseGame();
 		}
-		if (GUI.Button (new Rect (buttonXPos, buttonYPos + buttonHeight + buttonSpace, buttonWidth, buttonHeight), "Settings")) {
-			HideMenu();
-		}
-		if (GUI.Button (new Rect (buttonXPos, buttonYPos + 2 * (buttonHeight + buttonSpace), buttonWidth, buttonHeight), "Exit")) {
+		if (GUI.Button (new Rect (buttonXPos, buttonYPos + (buttonHeight + buttonSpace), buttonWidth, buttonHeight), "Exit")) {
 			Application.Quit();
 		}
 	}
@@ -53,7 +52,7 @@ public class MainMenuGui : MonoBehaviour {
 	}
 
 	private void DefineScreenWidth () {
-		buttonYPos = (Screen.height - (buttonHeight * 3 + buttonSpace * 2))/2;
+		buttonYPos = (Screen.height - (buttonHeight * 2 + buttonSpace))/2;
 		buttonXPos = (Screen.width - buttonWidth)/2;
 	}
 }

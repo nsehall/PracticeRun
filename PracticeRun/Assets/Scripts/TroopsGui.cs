@@ -7,13 +7,14 @@ public class TroopsGui : MonoBehaviour {
 	const int buttonHeight = 40;
 	const int buttonWidth = 90;
 
-	private ManagerScript managerScript;
+	private TroopPlace troopPlace;
+
 	private bool menuShowing = false;
 	private int buttonYPos;
 	private int buttonXPos;
 
-	void Awake () {
-		managerScript = GameObject.FindWithTag ("Manager").GetComponent<ManagerScript> ();
+	void Awake() {
+		troopPlace = GameObject.FindWithTag ("Manager").GetComponent<TroopPlace> ();
 	}
 
 	// Use this for initialization
@@ -46,11 +47,12 @@ public class TroopsGui : MonoBehaviour {
 
 		GUI.Label (new Rect (buttonXPos + 3, buttonYPos - 25, 200, 30), "PURCHASE TROOPS");
 		foreach (GameObject o in taggedObjects) {
-			
+
 		}
 		if (GUI.Button (new Rect (buttonXPos, buttonYPos, buttonWidth, buttonHeight), "Add Archers")) {
-			managerScript.currency += 50;
-			HideMenu();
+			if (troopPlace.PlaceIsInProcess()) {
+				HideMenu();
+			}
 		}
 	}
 

@@ -5,7 +5,7 @@ public class WallScript : MonoBehaviour {
 	
 	
 	public float health = 100;
-	private float maxHealth = health;
+	private float maxHealth;
 	private float healthPercent = 100;
 	public bool occupied = false;
 	private int children = 0;
@@ -13,7 +13,7 @@ public class WallScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		maxHealth = health;
 	}
 	
 	// Update is called once per frame

@@ -234,9 +234,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 680393581}
   - 114: {fileID: 680393582}
+  - 114: {fileID: 680393583}
   m_Layer: 0
   m_Name: GUI
-  m_TagString: Untagged
+  m_TagString: GUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,6 +263,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02eae128856e198499b93a03bd14fbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &680393583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680393580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ecf15517a0d1b147b3e9ce0273a133a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &769221509
@@ -411,6 +423,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1534523104}
   - 114: {fileID: 1534523103}
+  - 114: {fileID: 1534523101}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Manager
@@ -418,6 +431,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1534523101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1534523100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68365a83d7a99ac40b10a17ec88e3503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1534523103
 MonoBehaviour:
   m_ObjectHideFlags: 0

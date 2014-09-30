@@ -5,6 +5,7 @@ public class WallScript : MonoBehaviour {
 	
 	public int health = 100;
 	public bool occupied = false;
+	private int children = 0;
 	
 	
 	// Use this for initialization
@@ -18,17 +19,21 @@ public class WallScript : MonoBehaviour {
 	}
 	
 	public void ReceiveDamage(int damage){
-		if (damage > health) {
+		if (damage < health) {
 			health = health - damage;
 		} else {
 			Destroy(this.gameObject);
 		}
 	}
 	
-	//public bool IsOccupied() {
-		//Transform[] children = 
-			//if(this.gameObject.get
-			   //}
-    //}
+	public bool IsOccupied() {
+		children = transform.childCount;
+			if(children > 0) {
+			occupied = true;
+			   } else {
+			occupied = false;
+		}
+		return occupied;
+    }
 
 }

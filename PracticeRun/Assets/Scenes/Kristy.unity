@@ -242,8 +242,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263936229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.3594646, y: -10.660387, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 15.6157379, y: -8.46993256, z: 0}
+  m_LocalScale: {x: 29.8516445, y: 29.851635, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -286,6 +286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02eae128856e198499b93a03bd14fbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSpace: 20
+  buttonHeight: 40
+  buttonWidth: 90
+  tagName: Enemy
+  test: 0
+  archer: {fileID: 0}
+  warrior: {fileID: 0}
+  catapult: {fileID: 0}
 --- !u!1 &769221509
 GameObject:
   m_ObjectHideFlags: 0

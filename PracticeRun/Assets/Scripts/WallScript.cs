@@ -19,12 +19,12 @@ public class WallScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		healthPercent = health / maxHealth;
-		GetComponent<Animator>().SetFloat("healthPercent", healthPercent);
+		GetComponent<Animator>().SetFloat("HealthPercent", healthPercent);
 	}
 	
 	public void ReceiveDamage(int damage){
-		if ((float)damage < health) {
-			health = health - (float)damage;
+		if (damage < health) {
+			health = health - damage;
 		} else {
 			transform.position = Vector2.up * 1000;
 			Destroy(this.gameObject, 0.5f);

@@ -39,7 +39,6 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 --- !u!1101 &110100000
 Transition:
-  serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -49,17 +48,15 @@ Transition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: HealthPercent
     m_EventTreshold: .699999988
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
-  m_CanTransitionToSelf: 0
 --- !u!1101 &110121877
 Transition:
-  serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -76,7 +73,6 @@ Transition:
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
-  m_CanTransitionToSelf: 0
 --- !u!1102 &110200623
 State:
   m_ObjectHideFlags: 3
@@ -154,12 +150,12 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
+      first: {fileID: 110200623}
+      second: []
+    data:
       first: {fileID: 110201231}
       second:
       - {fileID: 110100000}
-    data:
-      first: {fileID: 110200623}
-      second: []
     data:
       first: {fileID: 110272161}
       second: []

@@ -145,6 +145,9 @@ MonoBehaviour:
   buttonWidth: 90
   tagName: Enemy
   test: 0
+  archer: {fileID: 100000, guid: b4579ee56010bcf49afa3848ac7bdcce, type: 2}
+  warrior: {fileID: 0}
+  catapult: {fileID: 0}
 --- !u!114 &680393583
 MonoBehaviour:
   m_ObjectHideFlags: 0

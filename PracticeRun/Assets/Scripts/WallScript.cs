@@ -36,4 +36,14 @@ public class WallScript : MonoBehaviour {
 		return occupied;
     }
 
+	//onclick assign troop's parent to wall
+	public bool AssignTroop(Transform troopPrefab) {
+		if (IsOccupied() == false) {
+			Transform troop = Instantiate (troopPrefab);
+			troop.transform.position = this.transform.position;
+			troop.transform.parent = this.transform;
+			return true;
+		    } else {
+			return false;
+		}
 }

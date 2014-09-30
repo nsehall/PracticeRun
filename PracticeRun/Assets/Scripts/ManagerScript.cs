@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class ManagerScript: MonoBehaviour {
-
 	public int currency = 0;
 
 
@@ -15,4 +14,5 @@ public class ManagerScript: MonoBehaviour {
 	void FixedUpdate () {
 
 	}
+
 }
